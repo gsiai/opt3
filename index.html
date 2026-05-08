@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Services Imports & Investments</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif;}
+body {background:#fff; color:#000; line-height:1.6;}
+a {text-decoration:none; color:inherit;}
+header {background:#0a1f44; color:white; padding:15px 40px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:1000;}
+header img.logo {height:60px; width:auto; margin-right:10px;}
+nav ul {display:flex; list-style:none; gap:20px;}
+nav ul li a {padding:8px 12px; transition:0.3s;}
+nav ul li a:hover {color:red;}
+.language-select {padding:5px; border-radius:5px; cursor:pointer;}
+#home {text-align:center; padding:80px 20px; background:url('https://images.unsplash.com/photo-1604079621900-61a3f50bda34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200') no-repeat center center/cover; color:white;}
+#home h1 {font-size:3rem; margin-bottom:10px;}
+#home p {font-size:1.2rem; margin-bottom:20px;}
+#home button {padding:12px 25px; background:red; border:none; color:white; border-radius:5px; cursor:pointer; font-size:1rem;}
+section {padding:60px 20px; max-width:1200px; margin:0 auto;}
+section h2 {text-align:center; margin-bottom:40px; font-size:2rem;}
+.services-slider, .projects-slider {display:flex; overflow-x:auto; gap:20px; scroll-behavior:smooth; padding-bottom:20px;}
+.service-item, .project-item, .product-card {min-width:250px; background:#f9f9f9; border-radius:10px; padding:15px; text-align:center; flex-shrink:0; transition:transform 0.3s;}
+.service-item img, .project-item img, .product-card img {width:100%; height:150px; object-fit:cover; border-radius:10px;}
+.service-item:hover, .project-item:hover, .product-card:hover {transform:scale(1.05);}
+.service-item button, .project-item button, .product-card button {margin-top:10px; padding:8px 12px; background:#0a1f44; color:white; border:none; border-radius:5px; cursor:pointer;}
+.service-item button:hover, .project-item button:hover, .product-card button:hover {background:red;}
+.modal {display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.7);}
+.modal-content {background:#fff; margin:5% auto; padding:20px; width:90%; max-width:600px; border-radius:10px; text-align:center;}
+.modal-content img {width:100%; border-radius:10px;}
+.close-modal {color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;}
+.close-modal:hover {color:black;}
+.products-grid {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
+.product-card .price {margin:10px 0; font-weight:bold;}
+form {display:flex; flex-direction:column; gap:15px; max-width:600px; margin:0 auto;}
+form input, form select, form textarea {padding:10px; border-radius:5px; border:1px solid #ccc; width:100%;}
+form button {padding:12px; background:#0a1f44; color:white; border:none; border-radius:5px; cursor:pointer;}
+form button:hover {background:red;}
+footer {background:red; color:white; text-align:center; padding:20px;}
+@media(max-width:1024px){.services-slider, .projects-slider, .products-grid{flex-direction:column;}}
+@media(max-width:768px){nav ul{flex-direction:column; gap:10px;}}
+</style>
+</head>
+<body>
+
+<header>
+    <div style="display:flex;align-items:center;">
+        <img src="img/GSII_01.png" alt="Logo" class="logo">
+        <span style="font-weight:bold;">Global Services Imports & Investments</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Nosotros</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#ecommerce">Ecommerce</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <select class="language-select" id="languageSelect">
+        <option value="en">🇦🇺 English</option>
+        <option value="es">🇪🇸 Español</option>
+    </select>
+</header>
+
+<!--section id="home">
+    <h1 data-en="Global Solutions Without Borders" data-es="Soluciones Globales Sin Fronteras">Global Solutions Without Borders</h1>
+    <p data-en="We connect markets, move goods and create value through import and investment solutions." data-es="Conectamos mercados, movemos bienes y creamos valor a través de soluciones de importación e inversión.">We connect markets, move goods and create value through import and investment solutions.</p>
+    <button data-en="Discover More" data-es="Descubrir Más">Discover More</button>
+</section>-->
+
+<section id="about">
+    <h2 data-en="About Us" data-es="Nosotros">About Us</h2>
+    <p data-en="Global Services Imports & Investments provides comprehensive import, logistics, and investment solutions to businesses worldwide." data-es="Global Services Imports & Investments proporciona soluciones integrales de importación, logística e inversión a empresas en todo el mundo.">Global Services Imports & Investments provides comprehensive import, logistics, and investment solutions to businesses worldwide.</p>
+    <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+        <img src="img/office.jpg" alt="Office">
+        <img src="img/ship.jpg" alt="Ship">
+        <img src="img/truck.jpg" alt="Truck">
+        <img src="img/airplane.jpg" alt="Airplane">
+    </div>
+</section>
+
+<section id="services">
+    <h2 data-en="Our Services" data-es="Nuestros Servicios">Our Services</h2>
+    <div class="services-slider" id="servicesSlider">
+        <div class="service-item">
+            <img src="img/importservices.jpg" alt="Import Service">
+            <h3 data-en="Import Services" data-es="Servicios de Importación">Import Services</h3>
+            <p data-en="Efficient global import services tailored to your business needs." data-es="Servicios de importación global eficientes adaptados a sus necesidades comerciales.">Efficient global import services tailored to your business needs.</p>
+            <button onclick="openModal(this)" data-en="View More" data-es="Ver Más">View More</button>
+        </div>
+        <div class="service-item">
+            <img src="img/logisticservices.jpg" alt="Logistics Service">
+            <h3 data-en="Logistics Solutions" data-es="Soluciones Logísticas">Logistics Solutions</h3>
+            <p data-en="Comprehensive logistics management across sea, air, and land." data-es="Gestión logística integral por mar, aire y tierra.">Comprehensive logistics management across sea, air, and land.</p>
+            <button onclick="openModal(this)" data-en="View More" data-es="Ver Más">View More</button>
+        </div>
+    </div>
+</section>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img src="" id="modalImg" alt="Service Image">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+    </div>
+</div>
+
+<section id="projects">
+    <h2 data-en="Projects" data-es="Proyectos">Projects</h2>
+    <div class="projects-slider" id="projectsSlider">
+        <div class="project-item">
+            <img src="img/proyectoimportadora.jpg" alt="Project 1">
+            <h3 data-en="International Logistics" data-es="Logística Internacional">International Logistics</h3>
+            <p data-en="Efficient shipping, warehousing and distribution solutions globally." data-es="Soluciones eficientes de envío, almacenamiento y distribución a nivel global.">Efficient shipping, warehousing and distribution solutions globally.</p>
+            <button onclick="openModal(this)" data-en="View Details" data-es="Ver Detalles">View Details</button>
+        </div>
+    </div>
+</section>
+
+<section id="ecommerce">
+    <h2 data-en="Products" data-es="Productos">Products</h2>
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="img/smartphones.jpg" alt="Smartphone">
+            <h3 data-en="Smartphone" data-es="Teléfono Inteligente">Smartphone</h3>
+            <p class="price" data-en="$499" data-es="$499">$499</p>
+            <p data-en="Taxes: $49.90 | Shipping: $19.90" data-es="Impuestos: $49.90 | Envío: $19.90">Taxes: $49.90 | Shipping: $19.90</p>
+            <button onclick="openModal(this)" data-en="View Details" data-es="Ver Detalles">View Details</button>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 data-en="Contact Us" data-es="Contacto">Contact Us</h2>
+    <p>Email: <a href="mailto:globalservicesinvestandimport@gmail.com">globalservicesinvestandimport@gmail.com</a></p>
+    <p>Phone: +61 435 496 047</p>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone Number">
+        <select required>
+            <option value="">Select Inquiry Type</option>
+            <option value="information" data-en="Information" data-es="Información">Information</option>
+            <option value="quotation" data-en="Quotation" data-es="Cotización">Quotation</option>
+            <option value="shipping" data-en="Shipping" data-es="Envíos">Shipping</option>
+            <option value="contact" data-en="Contact" data-es="Contacto">Contact</option>
+            <option value="questions" data-en="Questions" data-es="Preguntas">Questions</option>
+        </select>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+    </form>
+</section>
+
+<footer>&copy; 2026 Global Services All Rights Reserved</footer>
+
+<script>
+const modal = document.getElementById('modal');
+function openModal(button){
+    const parent = button.parentElement;
+    document.getElementById('modalImg').src = parent.querySelector('img').src;
+    document.getElementById('modalTitle').innerText = parent.querySelector('h3').innerText;
+    document.getElementById('modalDesc').innerText = parent.querySelector('p').innerText;
+    modal.style.display='block';
+}
+function closeModal(){modal.style.display='none';}
+window.onclick=function(event){if(event.target===modal) closeModal();}
+document.getElementById('languageSelect').addEventListener('change',()=>{
+    const lang=event.target.value;
+    document.querySelectorAll('[data-en]').forEach(el=>{el.innerText=el.getAttribute(`data-${lang}`);});
+});
+function autoScrollSlider(id,interval){
+    const slider=document.getElementById(id);
+    if(!slider) return;
+    setInterval(()=>{
+        if(slider.scrollLeft + slider.clientWidth >= slider.scrollWidth){slider.scrollLeft=0;}
+        else {slider.scrollLeft += slider.clientWidth;}
+    },interval);
+}
+autoScrollSlider('servicesSlider',4000);
+autoScrollSlider('projectsSlider',5000);
+</script>
